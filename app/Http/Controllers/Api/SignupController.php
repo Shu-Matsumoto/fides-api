@@ -11,7 +11,7 @@ class SignupController extends Controller
     public function signup(Request $request)
     {
         $user = new \App\Models\User;
-        $user->login_id = $request->input('login_id');
+        $user->email = $request->input('email');
         $user->password = bcrypt($request->input('password'));
         $user->save();
 
@@ -20,7 +20,7 @@ class SignupController extends Controller
 
     public function signin(Request $request)
     {
-        $user = \App\Models\User::where('login_id', $request->input('username'))->get();
+        $user = \App\Models\User::where('email', $request->input('email'))->get();
         if ($user->count() == 1) {
             if (Hash::check($request->input('password'), $user[0]->password)) {
                 return response()->json([

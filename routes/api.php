@@ -3,8 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\SignupController;
+use App\Http\Controllers\Api\SystemAcountController;
 use App\Http\Controllers\Api\UserController;
-use App\Http\Controllers\Api\ActorProfileController;
 use App\Http\Controllers\Api\PlayConditionController;
 
 /*
@@ -25,6 +25,6 @@ use App\Http\Controllers\Api\PlayConditionController;
 Route::post('/signup', [SignupController::class, 'signup']); //->name('api.signup.post');
 Route::post('/signin', [SignupController::class, 'signin']); //->name('api.signup.post');
 
+Route::resource('/system_acounts', SystemAcountController::class)->except(['create', 'edit']);
 Route::resource('/users', UserController::class)->except(['create', 'edit']);
-Route::resource('/actor_profiles', ActorProfileController::class)->except(['create', 'edit']);
 Route::resource('/play_conditions', PlayConditionController::class)->except(['create', 'edit']);

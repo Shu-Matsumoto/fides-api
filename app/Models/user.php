@@ -10,8 +10,22 @@ class user extends Model
     use HasFactory;
 
     protected $fillable = [
-        'login_id',
+        'email',
         'password',
+        'user_name',
+        'real_name',
+        'image_path',
+        'birthday',
+        'blood_type',
+        'height',
+        'weight',
+        'clothes_size',
+        'shoes_size',
+        'breast_size',
+        'breast_top_size',
+        'breast_under_size',
+        'waist_size',
+        'hip_size',
         'open',
         'type',
         'is_admin',

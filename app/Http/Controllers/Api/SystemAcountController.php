@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ActorProfileController extends Controller
+class SystemAcountController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class ActorProfileController extends Controller
      */
     public function index()
     {
-        $users = \App\Models\actor_profile::all();
+        $users = \App\Models\System_acount::all();
         return response()->json([
             'message' => 'success',
             'data' => $users,
@@ -29,7 +29,7 @@ class ActorProfileController extends Controller
      */
     public function store(Request $request)
     {
-        $student = \App\Models\actor_profile::create($request->all());
+        $student = \App\Models\System_acount::create($request->all());
         return response()->json([
             'message' => 'success',
             'data' => $student,
@@ -44,7 +44,7 @@ class ActorProfileController extends Controller
      */
     public function show($id)
     {
-        $user = \App\Models\actor_profile::find($id);
+        $user = \App\Models\System_acount::find($id);
         return response()->json([
             'message' => 'success',
             'data' => $user,
@@ -60,7 +60,7 @@ class ActorProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = \App\Models\actor_profile::find($id);
+        $user = \App\Models\System_acount::find($id);
         $user->update($request->all());
         $user->save();
         return response()->json([
@@ -77,7 +77,7 @@ class ActorProfileController extends Controller
      */
     public function destroy($id)
     {
-        $user = \App\Models\actor_profile::find($id);
+        $user = \App\Models\System_acount::find($id);
         $user->delete();
         return response()->json([
             'message' => 'success',
