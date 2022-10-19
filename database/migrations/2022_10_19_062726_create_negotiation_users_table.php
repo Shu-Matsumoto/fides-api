@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('negotiation_users', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('actor_user_id')->constrained('actor_users')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('maker_user_id')->constrained('maker_users')->cascadeOnUpdate()->cascadeOnDelete();
+    //        $table->softDeletes($column = 'deleted_at', $precision = 0);
+            $table->integer('active');
+            $table->integer('is_deleted')->nullable($value = true);
             $table->timestamps();
         });
     }

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('actor_schedules', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('maker_id');
+            $table->foreignId('maker_id')->constrained('maker_users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->dateTime('start_time');
             $table->dateTime('end_time');
             $table->integer('recruiting')->nullable($value = true);

@@ -15,10 +15,9 @@ return new class extends Migration
     {
         Schema::create('offers', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('sender_id');
-            $table->unsignedInteger('receiver_id');
+            $table->foreignId('sender_id')->constrained('actor_users')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('receiver_id')->constrained('maker_users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->unsignedInteger('status');
-        
             $table->timestamps();
         });
     }
