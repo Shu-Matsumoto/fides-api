@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('actor_users', function (Blueprint $table) {
 
         $table->id();
-        $table->foreignId('user_id')->constrained('system_acounts')->cascadeOnUpdate()->cascadeOnDelete();
+        $table->foreignId('acount_id')->constrained('system_acounts')->cascadeOnUpdate()->cascadeOnDelete();
         $table->string('email', 100)->unique()->collate('utf8mb4_general_ci')->comment('メールアドレス');
         $table->string('password')->comment('パスワード');
         $table->string('user_name')->comment('ユーザー名');
