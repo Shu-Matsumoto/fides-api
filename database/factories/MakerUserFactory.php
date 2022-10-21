@@ -21,8 +21,8 @@ class MakerUserFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'maker_name' => fake()->company(),
-            'image_path' => 'https://girl-secret.com/wp-content/uploads//2019/07/9a4b0c6d3948389eff5e1accb205758a.jpg',
-            'url' => 'https://www.dmm.co.jp/digital/',
+            'image_path' => 'storage/images/makerprofile/sod.png',
+            'url' => 'https://www.sod.co.jp/',
         ];
     }
 }

@@ -82,4 +82,19 @@ class PortfolioController extends Controller
     {
         //
     }
+
+    /**
+     * ユーザーID指定でデータ取得
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showByUserId($id)
+    {
+        // 指定された"user_id"を持つレコード取得
+        $datas = \App\Models\Portfolio::where('user_id', $id)->get();
+        return response()->json([
+            'message' => 'success',
+            'data' => $datas,
+        ], 200);
+    }
 }

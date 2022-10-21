@@ -21,8 +21,8 @@ class PortfolioFactory extends Factory
             //
             'user_id' => ActorUser::factory(),
             'title' => fake()->text(),
-            'image_path' => 'https://cdn.up-timely.com/image/30/content/61435/qXMNnjDgh6ClwOdv42pMwsc4QUZZJjM7oSvfx649.jpg',
-            'url' => 'https://moodyz.com/top',
+            'image_path' => 'storage/images/portfolio/portfolio1.jpg',
+            'url' => 'https://www.dmm.co.jp/digital/videoa/-/detail/=/cid=midv00214/?dmmref=digital_top_pickup_pc&i3_ref=recommend&i3_ord=2',
         ];
     }
 }

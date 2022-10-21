@@ -83,4 +83,19 @@ class PlayConditionController extends Controller
             'message' => 'success',
         ], 200);
     }
+
+    /**
+     * ユーザーID指定でデータ取得
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showByUserId($id)
+    {
+        // 指定された"user_id"を持つレコード取得
+        $datas = \App\Models\play_condition::where('user_id', $id)->get();
+        return response()->json([
+            'message' => 'success',
+            'data' => $datas[0],
+        ], 200);
+    }
 }

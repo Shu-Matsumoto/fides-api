@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\ActorUser;
 
 class ActorUserController extends Controller
 {
@@ -46,7 +47,11 @@ class ActorUserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = \App\Models\ActorUser::find($id);
+        return response()->json([
+            'message' => 'success',
+            'data' => $user,
+        ], 200);
     }
 
     /**
