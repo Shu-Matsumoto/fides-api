@@ -20,4 +20,15 @@ class Chat extends Model
     protected $guarded = [
             'id'
     ];
+
+    // 女優ユーザー情報取得
+    public function actor_users()
+    {
+        return $this->belongsTo(\App\Models\ActorUser::class);
+    }
+    //メーカーユーザー情報取得
+    public function maker_users()
+    {
+        return $this->belongsTo(\App\Models\MakerUser::class);
+    }
 }

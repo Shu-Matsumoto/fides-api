@@ -25,4 +25,40 @@ class MakerUser extends Model
     protected $guarded = [
         'id'
     ];
+
+    // チャット情報取得
+    public function chats()
+    {
+        return $this->hasMany(\App\Models\Chat::class);
+    }
+
+    // オファー情報取得
+    public function offers()
+    {
+        return $this->hasMany(\App\Models\Offer::class);
+    }
+
+    // 評価情報取得
+    public function evaluations()
+    {
+        return $this->hasMany(\App\Models\Evaluation::class);
+    }
+
+    // 交渉情報取得
+    public function negotiation_users()
+    {
+        return $this->hasMany(\App\Models\NegotiationUser::class);
+    }
+
+    // 女優のスケジュール情報取得
+    public function actor_schedules()
+    {
+        return $this->hasMany(\App\Models\ActorSchedule::class);
+    }
+
+    // システムアカウントの情報取得
+    public function system_acounts()
+    {
+        return $this->belongsTo(\App\Models\System_acount::class);
+    }
 }

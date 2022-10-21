@@ -25,4 +25,14 @@ class System_acount extends Model
     protected $guarded = [
         'id'
     ];
+
+    public function actor_users()
+    {
+        return $this->hasMany(\App\Models\ActorUser::class);
+    }
+
+    public function maker_users()
+    {
+        return $this->hasMany(\App\Models\MakerUser::class);
+    }
 }

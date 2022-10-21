@@ -61,4 +61,11 @@ class play_condition extends Model
     protected $guarded = [
         'id'
     ];
+
+    //女優のid
+    public function actor_users()
+    {
+        return $this->belongsTo(\App\Models\ActorUser::class);
+    }
+
 }

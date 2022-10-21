@@ -19,4 +19,11 @@ class Portfolio extends Model
     protected $guarded = [
             'id'
     ];
+
+    //女優の情報
+    public function actor_users()
+    {
+        return $this->belongsTo(\App\Models\ActorUser::class);
+    }
+
 }
