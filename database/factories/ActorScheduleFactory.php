@@ -19,11 +19,11 @@ class ActorScheduleFactory extends Factory
     {
         return [
             //
-            'login_id' =>Str::random(10),
-            'password' =>'$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'type' => 0,
-            'is_admin' => 0,
-            'is_deleted' => 0,
+            'actor_user_id' =>ActorUser::factory(),
+            'maker_user_id' =>MakerUser::factory(),
+            'start_time' => '2022-10-28',
+            'end_time' => '2022-11-28',
+            'recruiting' => 0,
         ];
     }
 }

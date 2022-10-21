@@ -21,8 +21,12 @@ class EvaluationFactory extends Factory
     {
         return [
             //
-            'user_id' => User::factory(),
-            'maker_id' => Maker::factory()
+            'actor_user_id' => ActorUser::factory(),
+            'maker_user_id' => Maker::factory(),
+            'sender_dir' => 0,
+            'evaluation' => 1,
+            'comment' => fake()->realText(),
+
         ];
     }
 }

@@ -24,7 +24,7 @@ class ChatFactory extends Factory
             'actor_user_id' => ActorUser::factory(),
             'maker_user_id' => MakerUser::factory(),
             'sender_dir' => 0,
-            'comment' => $faker->realText(),
+            'comment' => fake()->realText(),
             'send_time' => now(),
         ];
     }

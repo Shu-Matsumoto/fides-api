@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\System_acount;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,6 +19,7 @@ class MakerUserFactory extends Factory
     {
         return [
             //
+            'acount_id' => System_acount::factory(),
             'email' => fake()->unique()->safeEmail(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'maker_name' => fake()->company(),

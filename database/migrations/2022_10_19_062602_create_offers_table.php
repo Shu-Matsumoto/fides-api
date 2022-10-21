@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('offers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('actor_schedule_id')->constrained('actor_schedules')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->foreignId('sender_id')->constrained('maker_users')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('maker_user_id')->constrained('maker_users')->cascadeOnUpdate()->cascadeOnDelete();
+            //$table->foreignId('actor_user_id')->constrained('actor_users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->unsignedInteger('status');
             $table->integer('fee');
             $table->text('title');
