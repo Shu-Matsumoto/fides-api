@@ -5,21 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MakerUser extends Model
+class play_condition extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'email',
-        'password',
-        'maker_name',
-        'image_path',
-        'url',
-    ];
-
-    protected $hidden = [
-        'password',
-        'remember_token',
+        'user_id',
+        'honban',
+        'gomunashi',
+        'nakadashi',
+        'ferachio',
+        'iramachio',
     ];
 
     protected $guarded = [

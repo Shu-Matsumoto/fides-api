@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\ActorUser;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ActorUser>
@@ -35,7 +36,7 @@ class ActorUserFactory extends Factory
             'breast_under_size' => 50,
             'waist_size' => 50,
             'hip_size' => 70,
-            'open' =>0,
+            'open' => 0,
             'is_admin' => 0,
             'is_deleted' => 0,
         ];

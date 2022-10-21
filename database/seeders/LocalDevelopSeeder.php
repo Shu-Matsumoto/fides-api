@@ -4,8 +4,11 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\User;
+use App\Models\ActorUser;
+use App\Models\MakerUser;
 use App\Models\play_condition;
+use App\Models\Portfolio;
+use App\Models\System_acount;
 
 class LocalDevelopSeeder extends Seeder
 {
@@ -19,26 +22,26 @@ class LocalDevelopSeeder extends Seeder
         //system
 
         System_acount::factory()->count(1)->create([
-                'type' => 1,
-            ]);
+            'type' => 1,
+        ]);
 
         System_acount::factory()->count(1)->create([
-                'type' => 2,
-            ]);
+            'type' => 2,
+        ]);
 
         $userIdCount = 0;
-
         // 空ユーザーの確保(ID:1~5)
         for ($index = 1; $index <= 5; $index++) {
-            User::factory()->count(1)->create([
+            ActorUser::factory()->count(1)->create([
                 'is_admin' => 1,
+                'acount_id' => 1,
             ]);
             $userIdCount++;
         }
 
         // 女優ユーザー(ID:6~10)
         for ($index = 1; $index <= 5; $index++) {
-            User::factory()->count(1)->create([
+            ActorUser::factory()->count(1)->create([
                 'is_admin' => 0,
                 'acount_id' => 1,
             ]);
@@ -48,22 +51,32 @@ class LocalDevelopSeeder extends Seeder
             ]);
             //portfolioを増やす,一人につき複数ある
 
-            portfolio::factory()->count(1)->create([
-                'user_id' => $userIdCount,
-                
-            ]);
+            for ($index2 = 1; $index2 <= 5; $index2++) {
+                portfolio::factory()->count(1)->create([
+                    'user_id' => $userIdCount,
 
+                ]);
+            }
+        }
+
+        $userIdCount = 0;
+        $userIdCount = 0;
+        // 空ユーザーの確保(ID:1~5)
+        for ($index = 1; $index <= 5; $index++) {
+            MakerUser::factory()->count(1)->create([
+                // 'is_admin' => 1,
+                'acount_id' => 2,
+            ]);
+            $userIdCount++;
         }
 
         // 制作会社ユーザー(ID:11~15)
         for ($index = 1; $index <= 5; $index++) {
-            User::factory()->count(1)->create([
-                'is_admin' => 0,
+            MakerUser::factory()->count(1)->create([
+                // 'is_admin' => 0,
                 'acount_id' => 2,
             ]);
             $userIdCount++;
-
-
         }
     }
 }

@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\System_acount>
  */
-class SystemAcountFactory extends Factory
+class System_acountFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,7 +18,7 @@ class SystemAcountFactory extends Factory
     public function definition()
     {
         return [
-            'login_id' => fake()->name(),
+            'login_id' => fake()->password(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'type' => 0,
             'is_admin' => 0,

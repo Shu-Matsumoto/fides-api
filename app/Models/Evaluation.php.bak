@@ -8,13 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class Evaluation extends Model
 {
     use HasFactory;
-
-    protected $fillable = [
-            'user_id',
-            'maker_id',
-    ];
-
-    protected $guarded = [
-         'id'
-    ];
 }
