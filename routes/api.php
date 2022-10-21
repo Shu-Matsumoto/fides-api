@@ -29,6 +29,6 @@ Route::post('/signin', [SignupController::class, 'signin']);
 Route::resource('/system_acounts', SystemAcountController::class)->except(['create', 'edit']);
 Route::resource('/actor/users', ActorUserController::class)->except(['create', 'edit']);
 Route::resource('/actor/play_conditions', PlayConditionController::class)->except(['create', 'edit']);
-Route::get('/actor/play_conditions/{userId}', [PlayConditionController::class, 'showByUserId']);
+Route::get('/actor/{userId}/play_conditions', [PlayConditionController::class, 'showByUserId']);
 Route::resource('actor/portfolios', PortfolioController::class)->except(['create', 'edit']);
-Route::get('/actor/portfolios/{userId}', [PortfolioController::class, 'showByUserId']);
+Route::get('/actor/{userId}/portfolios', [PortfolioController::class, 'showByUserId']);
