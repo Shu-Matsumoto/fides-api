@@ -13,13 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('actor_schedules', function (Blueprint $table) {
+        Schema::create('violation_reports', function (Blueprint $table) {
             $table->id();
             $table->foreignId('actor_user_id')->constrained('actor_users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('maker_user_id')->constrained('maker_users')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
-            $table->integer('recruiting')->nullable($value = true);
+            $table->integer('sender_dir');
+            $table->integer('breach_contract');
+            $table->integer('withdrawal_negotiation');
+            $table->integer('business_interruption');
+            $table->integer('nuisance');
+            $table->integer('other');
+            $table->text('explanation_text');
             $table->timestamps();
         });
     }
@@ -31,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('actor_schedules');
+        Schema::dropIfExists('violation_reports');
     }
 };
