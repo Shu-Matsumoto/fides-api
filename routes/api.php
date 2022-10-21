@@ -21,8 +21,8 @@ use App\Http\Controllers\Api\PlayConditionController;
 //     return $request->user();
 // });
 
-Route::post('/signup', [SignupController::class, 'signup']); //->name('api.signup.post');
-Route::post('/signin', [SignupController::class, 'signin']); //->name('api.signup.post');
+Route::post('/signup', [SignupController::class, 'signup']);
+Route::post('/signin', [SignupController::class, 'signin']);
 
 Route::resource('/system_acounts', SystemAcountController::class)->except(['create', 'edit']);
 //Route::resource('/users', UserController::class)->except(['create', 'edit']);

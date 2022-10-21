@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('acount_id')->constrained('system_acounts')->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('email', 100)->unique()->collate('utf8mb4_general_ci')->comment('メールアドレス');
             $table->string('password',100)->comment('パスワード');
-            $table->string('make_name',100);
+            $table->string('maker_name',100);
             $table->string('image_path',200)->nullable($value = true);
             $table->string('url')->nullable($value = true);
             $table->timestamps();
