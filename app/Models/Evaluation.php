@@ -10,14 +10,17 @@ class Evaluation extends Model
     use HasFactory;
 
     protected $fillable = [
-            'user_id',
-            'maker_id',
+            'actor_user_id',
+            'maker_user_id',
+            'sender_dir',
+            'evaluation',
+            'comment',
     ];
 
     protected $guarded = [
          'id'
     ];
-
+    //女優の情報
     public function actor_users()
     {
         return $this->belongsTo(\App\Models\ActorUser::class);

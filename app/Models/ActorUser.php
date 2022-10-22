@@ -46,11 +46,12 @@ class ActorUser extends Model
         return $this->hasMany(\App\Models\Chat::class);
     }
 
-    // オファー情報取得
-    public function offers()
+     // 女優のスケジュール情報取得
+    public function actor_schedules()
     {
-        return $this->hasMany(\App\Models\Offer::class);
+        return $this->hasMany(\App\Models\ActorSchedule::class);
     }
+
 
     // 評価情報取得
     public function evaluations()
@@ -58,16 +59,17 @@ class ActorUser extends Model
         return $this->hasMany(\App\Models\Evaluation::class);
     }
 
-    // 交渉情報取得
-    public function negotiation_users()
+
+    // 違反通報の情報取得
+    public function violation_reports()
     {
-        return $this->hasMany(\App\Models\NegotiationUser::class);
+        return $this->hasMany(\App\Models\ViolationReport::class);
     }
 
     // プレイ条件の情報取得
     public function play_conditions()
     {
-        return $this->hasOne(\App\Models\play_condition::class);
+        return $this->hasMany(\App\Models\play_condition::class);
     }
 
     // ポートフォリオの情報取得
@@ -81,4 +83,6 @@ class ActorUser extends Model
     {
         return $this->belongsTo(\App\Models\System_acount::class);
     }
+
+
 }

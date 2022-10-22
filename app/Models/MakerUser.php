@@ -44,10 +44,10 @@ class MakerUser extends Model
         return $this->hasMany(\App\Models\Evaluation::class);
     }
 
-    // 交渉情報取得
-    public function negotiation_users()
+    // 違反通報の情報取得
+    public function violation_reports()
     {
-        return $this->hasMany(\App\Models\NegotiationUser::class);
+        return $this->hasMany(\App\Models\ViolationReport::class);
     }
 
     // 女優のスケジュール情報取得

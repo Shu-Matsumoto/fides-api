@@ -1,10 +1,10 @@
 <?php
 
-namespace Da
-    ase\Factories;
 
-use Illuminate\Da
-    ase\Eloquent\Factories\Factory;
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+
 
 /**
  * @extends \Illuminate\Da
@@ -17,7 +17,7 @@ class OfferFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function           )
+    public function definition()
     {
         return [
             //
