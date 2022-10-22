@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\SystemAcountController;
 use App\Http\Controllers\Api\ActorUserController;
 use App\Http\Controllers\Api\PlayConditionController;
 use App\Http\Controllers\Api\PortfolioController;
+use App\Http\Controllers\Api\ChatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,5 @@ Route::resource('/actor/play_conditions', PlayConditionController::class)->excep
 Route::get('/actor/{userId}/play_conditions', [PlayConditionController::class, 'showByUserId']);
 Route::resource('actor/portfolios', PortfolioController::class)->except(['create', 'edit']);
 Route::get('/actor/{userId}/portfolios', [PortfolioController::class, 'showByUserId']);
+Route::resource('/chats', ChatController::class)->except(['create', 'edit']);
+Route::post('/chats/users/{userId}', [ChatController::class, 'indexByUserId']);

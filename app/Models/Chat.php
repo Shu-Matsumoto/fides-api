@@ -10,24 +10,24 @@ class Chat extends Model
     use HasFactory;
 
     protected $fillable = [
-            'actor_user_id',
-            'maker_user_id',
-            'sender_dir',
-            'comment',
-            'send_time',
+        'actor_user_id',
+        'maker_user_id',
+        'sender_dir',
+        'comment',
+        'send_time',
     ];
 
     protected $guarded = [
-            'id'
+        'id'
     ];
 
     // 女優ユーザー情報取得
-    public function actor_users()
+    public function actor_user()
     {
         return $this->belongsTo(\App\Models\ActorUser::class);
     }
     //メーカーユーザー情報取得
-    public function maker_users()
+    public function maker_user()
     {
         return $this->belongsTo(\App\Models\MakerUser::class);
     }
