@@ -15,6 +15,11 @@ class ActorScheduleController extends Controller
     public function index()
     {
         //
+        $users = \App\Models\ActorSchedule::all();
+        return response()->json([
+            'message' => 'success',
+            'data' => $users,
+        ], 200);
     }
 
     /**
@@ -22,10 +27,15 @@ class ActorScheduleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+    // public function create()
+    // {
+    //     //
+    //     $student = \App\Models\ActorSchedule::create($request->all());
+    //     return response()->json([
+    //         'message' => 'success',
+    //         'data' => $student,
+    //     ], 200);
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -36,6 +46,11 @@ class ActorScheduleController extends Controller
     public function store(Request $request)
     {
         //
+        $student = \App\Models\ActorSchedule::create($request->all());
+        return response()->json([
+            'message' => 'success',
+            'data' => $student,
+        ], 200);
     }
 
     /**
@@ -47,6 +62,11 @@ class ActorScheduleController extends Controller
     public function show($id)
     {
         //
+        $user = \App\Models\ActorSchedule::find($id);
+        return response()->json([
+            'message' => 'success',
+            'data' => $user,
+        ], 200);
     }
 
     /**
@@ -70,6 +90,13 @@ class ActorScheduleController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $user = \App\Models\ActorSchedule::find($id);
+        $user->update($request->all());
+        $user->save();
+        return response()->json([
+            'message' => 'success',
+            'data' => $user,
+        ], 200);
     }
 
     /**
@@ -81,5 +108,10 @@ class ActorScheduleController extends Controller
     public function destroy($id)
     {
         //
+        $user = \App\Models\ActorSchedule::find($id);
+        $user->delete();
+        return response()->json([
+            'message' => 'success',
+        ], 200);
     }
 }

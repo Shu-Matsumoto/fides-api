@@ -87,4 +87,9 @@ class ActorUserController extends Controller
     {
         //
     }
+
+    public function seach($id)
+    {
+        //
+    }
 }
