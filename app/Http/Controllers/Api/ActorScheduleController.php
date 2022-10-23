@@ -23,21 +23,6 @@ class ActorScheduleController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    // public function create()
-    // {
-    //     //
-    //     $student = \App\Models\ActorSchedule::create($request->all());
-    //     return response()->json([
-    //         'message' => 'success',
-    //         'data' => $student,
-    //     ], 200);
-    // }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -45,11 +30,10 @@ class ActorScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $student = \App\Models\ActorSchedule::create($request->all());
+        $schedule = \App\Models\ActorSchedule::create($request->all());
         return response()->json([
             'message' => 'success',
-            'data' => $student,
+            'data' => $schedule,
         ], 200);
     }
 
@@ -67,17 +51,6 @@ class ActorScheduleController extends Controller
             'message' => 'success',
             'data' => $user,
         ], 200);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     /**
@@ -107,11 +80,25 @@ class ActorScheduleController extends Controller
      */
     public function destroy($id)
     {
-        //
-        $user = \App\Models\ActorSchedule::find($id);
-        $user->delete();
+        $data = \App\Models\ActorSchedule::find($id);
+        $data->delete();
         return response()->json([
             'message' => 'success',
+        ], 200);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexByUserId(Request $request, int $userId)
+    {
+        // 指定された女優ユーザーのスケジュール一覧取得
+        $schedules = \App\Models\ActorSchedule::where('actor_user_id', $userId)->get();
+        return response()->json([
+            'message' => 'success',
+            'data' => $schedules
         ], 200);
     }
 }

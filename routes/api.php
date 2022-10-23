@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\ActorUserController;
 use App\Http\Controllers\Api\PlayConditionController;
 use App\Http\Controllers\Api\PortfolioController;
 use App\Http\Controllers\Api\ChatController;
+use App\Http\Controllers\Api\ActorScheduleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +36,5 @@ Route::resource('actor/portfolios', PortfolioController::class)->except(['create
 Route::get('/actor/{userId}/portfolios', [PortfolioController::class, 'showByUserId']);
 Route::resource('/chats', ChatController::class)->except(['create', 'edit']);
 Route::post('/chats/users/{userId}', [ChatController::class, 'indexByUserId']);
+Route::resource('/actor_schedules', ActorScheduleController::class)->except(['create', 'edit']);
+Route::get('/actor_schedules/users/{userId}', [ActorScheduleController::class, 'indexByUserId']);
