@@ -84,7 +84,7 @@ class ActorUserController extends Controller
         ], 200);
     }
 
-    public function name_search(Request $request)
+    public function condition_search(Request $request)
     {
 
         if (!empty($request)) {
@@ -146,7 +146,7 @@ class ActorUserController extends Controller
 
     }
 
-    public function condition_search(Request $request)
+    public function name_search(Request $request)
     {
 
     if (!empty($request)) {
