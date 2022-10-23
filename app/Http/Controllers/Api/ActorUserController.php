@@ -84,8 +84,20 @@ class ActorUserController extends Controller
         ], 200);
     }
 
-    public function seach($id)
+    public function name_seach(Request $request)
     {
-        //
+
+    if (!empty($request)) {
+        //検索キーワードのnameをnameとする場合
+        $name = $request;
+        $user_name = ActorUser::where('user_name','like' ,"%$name%")
+        ->save();
+        return response()->json([
+            'message' => 'success',
+            'user_name' => $user_name,
+        ], 200);
+
+
+    }
     }
 }
