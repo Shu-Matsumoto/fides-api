@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('actor_user_id')->constrained('actor_users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('maker_user_id')->constrained('maker_users')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
-            $table->integer('recruiting')->nullable($value = true);
+            $table->dateTime('start_time')->comment('開始時刻');
+            $table->dateTime('end_time')->comment('終了時刻');
+            $table->unsignedInteger('recruiting')->nullable()->comment('募集中');
             $table->timestamps();
         });
     }

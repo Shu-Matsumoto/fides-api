@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ActorUserController extends Controller
+class OfferResponseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class ActorUserController extends Controller
      */
     public function index()
     {
-        $datas = \App\Models\ActorUser::all();
+        $datas = \App\Models\OfferResponse::all();
         return response()->json([
             'message' => 'success',
             'data' => $datas,
@@ -29,7 +29,7 @@ class ActorUserController extends Controller
      */
     public function store(Request $request)
     {
-        $data = \App\Models\ActorUser::create($request->all());
+        $data = \App\Models\OfferResponse::create($request->all());
         return response()->json([
             'message' => 'success',
             'data' => $data,
@@ -44,10 +44,10 @@ class ActorUserController extends Controller
      */
     public function show($id)
     {
-        $user = \App\Models\ActorUser::find($id);
+        $data = \App\Models\OfferResponse::find($id);
         return response()->json([
             'message' => 'success',
-            'data' => $user,
+            'data' => $data,
         ], 200);
     }
 
@@ -60,7 +60,7 @@ class ActorUserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = \App\Models\ActorUser::find($id);
+        $data = \App\Models\OfferResponse::find($id);
         $data->update($request->all());
         $data->save();
         return response()->json([
@@ -77,15 +77,10 @@ class ActorUserController extends Controller
      */
     public function destroy($id)
     {
-        $data = \App\Models\ActorUser::find($id);
+        $data = \App\Models\OfferResponse::find($id);
         $data->delete();
         return response()->json([
             'message' => 'success',
         ], 200);
-    }
-
-    public function seach($id)
-    {
-        //
     }
 }

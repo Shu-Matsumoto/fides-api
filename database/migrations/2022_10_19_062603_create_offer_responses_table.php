@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('offer_responses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('offer_id')->constrained('offers')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->unsignedInteger('response');
-            $table->text('message');
+            $table->unsignedInteger('response')->comment('レスポンス');
+            $table->text('message')->comment('メッセージ');
             $table->timestamps();
         });
     }

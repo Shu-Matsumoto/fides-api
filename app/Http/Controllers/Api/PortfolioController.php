@@ -14,7 +14,11 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        //
+        $datas = \App\Models\Portfolio::all();
+        return response()->json([
+            'message' => 'success',
+            'data' => $datas,
+        ], 200);
     }
 
     /**
@@ -25,7 +29,11 @@ class PortfolioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = \App\Models\Portfolio::create($request->all());
+        return response()->json([
+            'message' => 'success',
+            'data' => $data,
+        ], 200);
     }
 
     /**
@@ -52,7 +60,13 @@ class PortfolioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = \App\Models\Portfolio::find($id);
+        $data->update($request->all());
+        $data->save();
+        return response()->json([
+            'message' => 'success',
+            'data' => $data,
+        ], 200);
     }
 
     /**
@@ -63,7 +77,11 @@ class PortfolioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = \App\Models\Portfolio::find($id);
+        $data->delete();
+        return response()->json([
+            'message' => 'success',
+        ], 200);
     }
 
     /**

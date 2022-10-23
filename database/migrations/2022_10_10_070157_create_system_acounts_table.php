@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('system_acounts', function (Blueprint $table) {
             $table->id();
             $table->string('login_id', 100)->unique()->collate('utf8mb4_general_ci')->comment('ログインID');
-            $table->string('password')->comment('パスワード');
-            $table->unsignedInteger('type')->comment('タイプ');
+            $table->string('password')->comment('ログインパスワード');
+            $table->unsignedInteger('type')->comment('ユーザータイプ');
             $table->unsignedInteger('is_admin')->comment('管理者');
-            $table->unsignedInteger('is_deleted')->comment('ユーザー削除状態');
+            $table->unsignedInteger('is_deleted')->comment('ユーザー削除');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class ChatController extends Controller
 {
@@ -14,7 +14,11 @@ class ChatController extends Controller
      */
     public function index()
     {
-        //
+        $datas = \App\Models\Chat::all();
+        return response()->json([
+            'message' => 'success',
+            'data' => $datas,
+        ], 200);
     }
 
     /**
@@ -44,7 +48,11 @@ class ChatController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = \App\Models\Chat::find($id);
+        return response()->json([
+            'message' => 'success',
+            'data' => $data,
+        ], 200);
     }
 
     /**
@@ -56,7 +64,13 @@ class ChatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = \App\Models\Chat::find($id);
+        $data->update($request->all());
+        $data->save();
+        return response()->json([
+            'message' => 'success',
+            'data' => $data,
+        ], 200);
     }
 
     /**
@@ -67,7 +81,11 @@ class ChatController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = \App\Models\Chat::find($id);
+        $data->delete();
+        return response()->json([
+            'message' => 'success',
+        ], 200);
     }
 
     /**
@@ -77,11 +95,6 @@ class ChatController extends Controller
      */
     public function indexByUserId(Request $request, int $userId)
     {
-        // return response()->json([
-        //     'message' => 'success',
-        //     'data' => ['req' => $request->input('user_type'), 'id' => $userId]
-        // ], 200);
-
         $data = [];
 
         // リクエストのuser_typeに従い取得するチャットリストを切り替える

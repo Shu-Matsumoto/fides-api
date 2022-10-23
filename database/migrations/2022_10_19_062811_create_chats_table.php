@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('actor_user_id')->constrained('actor_users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('maker_user_id')->constrained('maker_users')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->integer('sender_dir');
-            $table->longText('comment');
-            $table->timestamp('send_time');
+            $table->unsignedInteger('sender_dir')->comment('送信方向');
+            $table->text('comment')->comment('コメント');
+            $table->timestamp('send_time')->comment('送信日時');
             $table->timestamps();
         });
     }

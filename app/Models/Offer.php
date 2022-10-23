@@ -10,26 +10,25 @@ class Offer extends Model
     use HasFactory;
 
     protected $fillable = [
-            'actor_schedule_id',
-            'maker_user_id',
-        //    'actor_user_id' ,
-            'status',
-            'fee' ,
-            'title',
-            'summary',
-            'date_time',
-            'place',
-            'makeup',
-            'rental_costume',
-            'private_room',
-            'shared_room',
-            'pick_up',
-            'meal',
-            'message',
+        'actor_schedule_id',
+        'maker_user_id',
+        'status',
+        'fee',
+        'title',
+        'summary',
+        'date_time',
+        'place',
+        'makeup',
+        'rental_costume',
+        'private_room',
+        'shared_room',
+        'pick_up',
+        'meal',
+        'message',
     ];
 
     protected $guarded = [
-            'id'
+        'id'
     ];
     //女優のスケジュール情報取得
     public function actor_schedules()
@@ -47,4 +46,3 @@ class Offer extends Model
         return $this->hasMany(\App\Models\OfferResponse::class);
     }
 }
-

@@ -16,11 +16,10 @@ return new class extends Migration
         Schema::create('portfolios', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('actor_users')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->string('title', 200)->nullable($value = true);
-            $table->string('image_path', 200)->nullable($value = true);
-            $table->string('url')->nullable($value = true);
+            $table->string('title', 200)->comment('タイトル');
+            $table->string('image_path', 200)->nullable()->comment('画像パス');
+            $table->text('url')->nullable()->comment('作品URL');
             $table->timestamps();
-
         });
     }
 

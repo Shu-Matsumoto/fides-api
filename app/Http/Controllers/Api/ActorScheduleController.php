@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class ActorScheduleController extends Controller
 {
@@ -14,11 +14,10 @@ class ActorScheduleController extends Controller
      */
     public function index()
     {
-        //
-        $users = \App\Models\ActorSchedule::all();
+        $datas = \App\Models\ActorSchedule::all();
         return response()->json([
             'message' => 'success',
-            'data' => $users,
+            'data' => $datas,
         ], 200);
     }
 
@@ -30,10 +29,10 @@ class ActorScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        $schedule = \App\Models\ActorSchedule::create($request->all());
+        $data = \App\Models\ActorSchedule::create($request->all());
         return response()->json([
             'message' => 'success',
-            'data' => $schedule,
+            'data' => $data,
         ], 200);
     }
 
@@ -45,11 +44,10 @@ class ActorScheduleController extends Controller
      */
     public function show($id)
     {
-        //
-        $user = \App\Models\ActorSchedule::find($id);
+        $data = \App\Models\ActorSchedule::find($id);
         return response()->json([
             'message' => 'success',
-            'data' => $user,
+            'data' => $data,
         ], 200);
     }
 
@@ -62,13 +60,12 @@ class ActorScheduleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        $user = \App\Models\ActorSchedule::find($id);
-        $user->update($request->all());
-        $user->save();
+        $data = \App\Models\ActorSchedule::find($id);
+        $data->update($request->all());
+        $data->save();
         return response()->json([
             'message' => 'success',
-            'data' => $user,
+            'data' => $data,
         ], 200);
     }
 
@@ -92,9 +89,9 @@ class ActorScheduleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function indexByUserId(Request $request, int $userId)
+    public function indexByUserId(int $userId)
     {
-        // Žw’è‚³‚ê‚½——Dƒ†[ƒU[‚ÌƒXƒPƒWƒ…[ƒ‹ˆê——Žæ“¾
+        // æŒ‡å®šã•ã‚ŒãŸIDã®å¥³å„ªãƒ¦ãƒ¼ã‚¶ãƒ¼ãŒæ‰€æœ‰ã™ã‚‹ã‚¹ã‚±ã‚¸ãƒ¥ãƒ¼ãƒ«ä¸€è¦§å–å¾—
         $schedules = \App\Models\ActorSchedule::where('actor_user_id', $userId)->get();
         return response()->json([
             'message' => 'success',

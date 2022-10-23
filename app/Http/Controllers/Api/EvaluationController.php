@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class EvaluationController extends Controller
 {
@@ -14,17 +14,11 @@ class EvaluationController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $datas = \App\Models\Evaluation::all();
+        return response()->json([
+            'message' => 'success',
+            'data' => $datas,
+        ], 200);
     }
 
     /**
@@ -35,7 +29,11 @@ class EvaluationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = \App\Models\Evaluation::create($request->all());
+        return response()->json([
+            'message' => 'success',
+            'data' => $data,
+        ], 200);
     }
 
     /**
@@ -46,18 +44,11 @@ class EvaluationController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $data = \App\Models\Evaluation::find($id);
+        return response()->json([
+            'message' => 'success',
+            'data' => $data,
+        ], 200);
     }
 
     /**
@@ -69,7 +60,13 @@ class EvaluationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = \App\Models\Evaluation::find($id);
+        $data->update($request->all());
+        $data->save();
+        return response()->json([
+            'message' => 'success',
+            'data' => $data,
+        ], 200);
     }
 
     /**
@@ -80,6 +77,10 @@ class EvaluationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = \App\Models\Evaluation::find($id);
+        $data->delete();
+        return response()->json([
+            'message' => 'success',
+        ], 200);
     }
 }
