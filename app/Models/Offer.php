@@ -31,18 +31,19 @@ class Offer extends Model
         'id'
     ];
     //女優のスケジュール情報取得
-    public function actor_schedules()
+    public function actor_schedule()
     {
-        return $this->belongsTo(\App\Models\ActorSchedule::class);
+        return $this->hasOne(\App\Models\ActorSchedule::class, 'id', 'actor_schedule_id');
     }
     //メーカーユーザー情報取得
-    public function maker_users()
+    public function maker_user()
     {
-        return $this->belongsTo(\App\Models\MakerUser::class);
+        return $this->hasOne(\App\Models\MakerUser::class, 'id', 'maker_user_id');
     }
+
     //出演依頼に対するレスポンス取得
-    public function offer_responses()
+    public function offer_response()
     {
-        return $this->hasMany(\App\Models\OfferResponse::class);
+        return $this->hasOne(\App\Models\OfferResponse::class, 'id', 'offer_id');
     }
 }

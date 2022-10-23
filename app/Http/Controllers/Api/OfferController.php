@@ -59,37 +59,17 @@ class OfferController extends Controller
      */
     public function showdetail($id)
     {
-        // // 講師情報にユーザー情報の付加
-        // $teacherwithusers = [];
-        // $teachers = \App\Models\lecture::find($id)->teachers;
-        // foreach ($teachers as $teacher) {
-        //     $obj = [
-        //         'teacher' => \App\Models\teacher::find($teacher->id),
-        //         'user' => $teacher->user
-        //     ];
-        //     array_push($teacherwithusers, $obj);
-        // }
-        // // 生徒情報にユーザー情報の付加
-        // $studentwithusers = [];
-        // $students = \App\Models\lecture::find($id)->students;
-        // foreach ($students as $student) {
-        //     $obj = [
-        //         'student' => \App\Models\student::find($student->id),
-        //         'user' => $student->user
-        //     ];
-        //     array_push($studentwithusers, $obj);
-        // }
+        // 指定されたIDの女優ユーザーが所有するスケジュール一覧取得
+        $offer = \App\Models\Offer::find($id);
 
-        // return response()->json([
-        //     'message' => 'success',
-        //     'data' => [
-        //         'lecture' => \App\Models\lecture::find($id),
-        //         'students' => $studentwithusers,
-        //         'teachers' => $teacherwithusers,
-        //         'schedules' => \App\Models\lecture::find($id)->lecture_schedules,
-        //         'materials' => \App\Models\lecture::find($id)->teaching_materials
-        //     ]
-        // ], 200);
+        return response()->json([
+            'message' => 'success',
+            'data' => [
+                'offer' => $offer,
+                'schedule' => \App\Models\ActorSchedule::find($offer->actor_schedule_id),
+                'maker_user' => \App\Models\MakerUser::find($offer->maker_user_id),
+            ]
+        ], 200);
     }
 
     /**
@@ -133,18 +113,22 @@ class OfferController extends Controller
     public function indexByUserId(int $userId)
     {
         // 指定されたIDの女優ユーザーが所有するスケジュール一覧取得
-        $offers = [];
+        $datas = [];
         $schedules = \App\Models\ActorSchedule::where('actor_user_id', $userId)->get();
         foreach ($schedules as $schedule) {
             $subOffers = \App\Models\ActorSchedule::find($schedule->id)->offers;
             foreach ($subOffers as $offer) {
-                array_push($offers, $offer);
+                array_push($datas, [
+                    'offer' => $offer,
+                    'schedule' => \App\Models\ActorSchedule::find($offer->actor_schedule_id),
+                    'maker_user' => \App\Models\MakerUser::find($offer->maker_user_id),
+                ]);
             }
         }
 
         return response()->json([
             'message' => 'success',
-            'data' => $offers
+            'data' => $datas
         ], 200);
     }
 }
