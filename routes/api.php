@@ -35,6 +35,9 @@ Route::post('/signin', [SignupController::class, 'signin']);
 Route::resource('/system_acounts', SystemAcountController::class)->except(['create', 'edit']);
 
 Route::resource('/actor/users', ActorUserController::class)->except(['create', 'edit']);
+Route::get('/actor/users/condition_search', [ActorUserController::class, 'condition_search']);
+Route::get('/actor/users/user_search', [ActorUserController::class, 'user_search']);
+
 
 Route::resource('/maker/users', MakerUserController::class)->except(['create', 'edit']);
 
@@ -58,3 +61,4 @@ Route::post('/chats/users/{userId}', [ChatController::class, 'indexByUserId']);
 Route::resource('/evaluations', EvaluationController::class)->except(['create', 'edit']);
 
 Route::resource('/violation_reports', ViolationReportController::class)->except(['create', 'edit']);
+Route::get('/actor/{userId}/portfolios', [PortfolioController::class, 'showByUserId']);
