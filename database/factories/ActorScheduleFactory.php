@@ -23,7 +23,7 @@ class ActorScheduleFactory extends Factory
             'maker_user_id' => 1,
             'start_time' => '2022/10/28 10:00:00',
             'end_time' => '2022/11/28 18:00:00',
-            'recruiting' => 0,
+            'recruiting' => 1,
         ];
     }
 }

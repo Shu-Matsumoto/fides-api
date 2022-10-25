@@ -109,7 +109,7 @@ class ChatController extends Controller
                 $partnerUser = \App\Models\MakerUser::find($partner[0]->maker_user_id);
                 $partnerChats =
                     \App\Models\Chat::where('actor_user_id', $userId)
-                    ->orWhere('maker_user_id', $partner[0]->maker_user_id)->get();
+                    ->where('maker_user_id', $partner[0]->maker_user_id)->get();
                 $partnerChatsWithUser = [];
                 foreach ($partnerChats as $chat) {
                     array_push($partnerChatsWithUser, [
@@ -137,7 +137,7 @@ class ChatController extends Controller
                 $partnerUser = \App\Models\ActorUser::find($partner[0]->actor_user_id);
                 $partnerChats =
                     \App\Models\Chat::where('maker_user_id', $userId)
-                    ->orWhere('actor_user_id', $partner[0]->actor_user_id)->get();
+                    ->where('actor_user_id', $partner[0]->actor_user_id)->get();
                 $partnerChatsWithUser = [];
                 foreach ($partnerChats as $chat) {
                     array_push($partnerChatsWithUser, [

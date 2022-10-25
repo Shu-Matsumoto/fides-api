@@ -9,6 +9,10 @@ use App\Models\MakerUser;
 use App\Models\play_condition;
 use App\Models\Portfolio;
 use App\Models\System_acount;
+use App\Models\Chat;
+use App\Models\ActorSchedule;
+use App\Models\Offer;
+use App\Models\OfferResponse;
 
 class LocalDevelopSeeder extends Seeder
 {
@@ -30,12 +34,18 @@ class LocalDevelopSeeder extends Seeder
             'type' => 2,
         ]);
 
-        $userIdCount = 0;
-        // 空ユーザーの確保(ID:1~5)
+        // 空女優ユーザーの確保(ID:1~5)
         for ($index = 1; $index <= 5; $index++) {
             ActorUser::factory()->count(1)->create([
                 'is_admin' => 1,
                 'acount_id' => 1,
+            ]);
+        }
+
+        // 空メーカーユーザーの確保(ID:1~5)
+        for ($index = 1; $index <= 5; $index++) {
+            MakerUser::factory()->count(1)->create([
+                'acount_id' => 2,
             ]);
         }
 
@@ -61,6 +71,14 @@ class LocalDevelopSeeder extends Seeder
             ['title' => '作品タイトル5', 'image_path' => 'https://pics.dmm.co.jp/mono/movie/adult/oae214/oae214ps.jpg', 'url' => 'https://www.dmm.co.jp/mono/dvd/-/detail/=/cid=oae214/?dmmref=aMonoDvd_List'],
         ];
 
+        $actorScheduleDatas = [
+            ['start_time' => '2022/10/1 10:00:00', 'end_time' => '2022/10/1 18:00:00'],
+            ['start_time' => '2022/10/8 10:00:00', 'end_time' => '2022/10/8 18:00:00'],
+            ['start_time' => '2022/10/15 10:00:00', 'end_time' => '2022/10/15 18:00:00'],
+            ['start_time' => '2022/10/21 0:00:00', 'end_time' => '2022/10/23 00:00:00'],
+            ['start_time' => '2022/10/29 10:00:00', 'end_time' => '2022/10/29 18:00:00'],
+        ];
+
         foreach ($actorDatas as $index => $value) {
             $userId = ActorUser::factory()->count(1)->create([
                 'email' => 'actor' . $index . '@gmaaaaaail.com',
@@ -80,6 +98,16 @@ class LocalDevelopSeeder extends Seeder
                     'title' => $value['title'],
                     'image_path' => $value['image_path'],
                     'url' => $value['url'],
+                ]);
+            }
+
+            // 女優スケジュール
+            foreach ($actorScheduleDatas as $index => $value) {
+                ActorSchedule::factory()->count(1)->create([
+                    'actor_user_id' => $userId[0],
+                    'maker_user_id' => 1,
+                    'start_time' => $value['start_time'],
+                    'end_time' => $value['end_time']
                 ]);
             }
         }
@@ -109,28 +137,106 @@ class LocalDevelopSeeder extends Seeder
         //     }
         // }
 
-        $userIdCount = 0;
-        // 空ユーザーの確保(ID:1~5)
-        for ($index = 1; $index <= 5; $index++) {
-            MakerUser::factory()->count(1)->create([
+        // メーカーデータ
+        $makerDatas = [
+            ['maker_name' => 'ソフト・オン・デマンド株式会社', 'image_path' => 'storage/images/makerprofile/sod.png'],
+            ['maker_name' => '有限会社プレステージ', 'image_path' => 'storage/images/makerprofile/prestige.png'],
+        ];
+
+        foreach ($makerDatas as $index => $value) {
+            $userId = MakerUser::factory()->count(1)->create([
+                'email' => 'maker' . $index . '@gmaaaaaail.com',
                 'acount_id' => 2,
+                'maker_name' => $value['maker_name'],
+                'image_path' => $value['image_path']
             ]);
-            $userIdCount++;
         }
 
-        // 制作会社ユーザー(ID:11~15)
-        for ($index = 1; $index <= 5; $index++) {
-            if ($index == 1) {
-                MakerUser::factory()->count(1)->create([
-                    'email' => 'makermakermaker@gmaaaaaail.com',
-                    'acount_id' => 2,
-                ]);
-            } else {
-                MakerUser::factory()->count(1)->create([
-                    'acount_id' => 2,
-                ]);
-            }
-            $userIdCount++;
+        // // 制作会社ユーザー(ID:11~15)
+        // for ($index = 1; $index <= 5; $index++) {
+        //     if ($index == 1) {
+        //         MakerUser::factory()->count(1)->create([
+        //             'email' => 'makermakermaker@gmaaaaaail.com',
+        //             'acount_id' => 2,
+        //         ]);
+        //     } else {
+        //         MakerUser::factory()->count(1)->create([
+        //             'acount_id' => 2,
+        //         ]);
+        //     }
+        //     $userIdCount++;
+        // }
+
+        // チャットデータ作成
+        $this->createChatDatas();
+        // 出演依頼データ作成
+        $this->createOfferDatas();
+    }
+
+    // チャットデータ作成
+    function createChatDatas()
+    {
+        // ユーザー6とのやりとり
+        $actor_id = 6;
+        $maker_id = 6;
+
+        $chatDatas = [
+            ['actor_user_id' => $actor_id, 'maker_user_id' => $maker_id, 'sender_dir' => '2', 'comment' => 'SODの佐藤と申します。', 'send_time' => '2022/10/28 10:00:00'],
+            ['actor_user_id' => $actor_id, 'maker_user_id' => $maker_id, 'sender_dir' => '1', 'comment' => '始めまして鈴木花子と申します。', 'send_time' => '2022/10/28 10:01:00'],
+            ['actor_user_id' => $actor_id, 'maker_user_id' => $maker_id, 'sender_dir' => '2', 'comment' => '鈴木さんのプロフィールを拝見いたしました。', 'send_time' => '2022/10/28 10:01:23'],
+            ['actor_user_id' => $actor_id, 'maker_user_id' => $maker_id, 'sender_dir' => '2', 'comment' => '弊社AVの出演の交渉をさせていただきたいのですがよろしいでしょうか。', 'send_time' => '2022/10/28 10:02:00'],
+            ['actor_user_id' => $actor_id, 'maker_user_id' => $maker_id, 'sender_dir' => '1', 'comment' => 'はい、もちろんです。', 'send_time' => '2022/10/28 10:03:45']
+        ];
+
+        foreach ($chatDatas as $index => $value) {
+            Chat::factory()->count(1)->create([
+                'actor_user_id' => $value['actor_user_id'],
+                'maker_user_id' => $value['maker_user_id'],
+                'sender_dir' => $value['sender_dir'],
+                'comment' => $value['comment'],
+                'send_time' => $value['send_time'],
+            ]);
+        }
+
+        $actor_id = 6;
+        $maker_id = 7;
+
+        $chatDatas2 = [
+            ['actor_user_id' => $actor_id, 'maker_user_id' => $maker_id, 'sender_dir' => '2', 'comment' => 'PRESTAGEの佐藤と申します。', 'send_time' => '2022/10/28 10:00:00'],
+            ['actor_user_id' => $actor_id, 'maker_user_id' => $maker_id, 'sender_dir' => '1', 'comment' => '始めまして鈴木花子と申します。', 'send_time' => '2022/10/28 10:01:00'],
+            ['actor_user_id' => $actor_id, 'maker_user_id' => $maker_id, 'sender_dir' => '2', 'comment' => '鈴木さんのプロフィールを拝見いたしました。', 'send_time' => '2022/10/28 10:01:23'],
+            ['actor_user_id' => $actor_id, 'maker_user_id' => $maker_id, 'sender_dir' => '2', 'comment' => '弊社AVの出演の交渉をさせていただきたいのですがよろしいでしょうか。', 'send_time' => '2022/10/28 10:02:00'],
+            ['actor_user_id' => $actor_id, 'maker_user_id' => $maker_id, 'sender_dir' => '1', 'comment' => 'はい、もちろんです。', 'send_time' => '2022/10/28 10:03:45']
+        ];
+
+        foreach ($chatDatas2 as $index => $value) {
+            Chat::factory()->count(1)->create([
+                'actor_user_id' => $value['actor_user_id'],
+                'maker_user_id' => $value['maker_user_id'],
+                'sender_dir' => $value['sender_dir'],
+                'comment' => $value['comment'],
+                'send_time' => $value['send_time'],
+            ]);
+        }
+    }
+
+    // 出演依頼データ作成
+    function createOfferDatas()
+    {
+        $offerDatas = [
+            ['actor_schedule_id' => 1, 'maker_user_id' => 6, 'fee' => 500000, 'title' => '作品タイトル1', 'message' => '正式に出演オファーさせていただきます。',],
+            ['actor_schedule_id' => 2, 'maker_user_id' => 6, 'fee' => 1000000, 'title' => '作品タイトル2', 'message' => '正式に出演オファーさせていただきます。',],
+            ['actor_schedule_id' => 1, 'maker_user_id' => 7, 'fee' => 500000, 'title' => '作品タイトル3', 'message' => '出演オファーです。ご検討ください。',],
+        ];
+
+        foreach ($offerDatas as $index => $value) {
+            Offer::factory()->count(1)->create([
+                'actor_schedule_id' => $value['actor_schedule_id'],
+                'maker_user_id' => $value['maker_user_id'],
+                'fee' => $value['fee'],
+                'title' => $value['title'],
+                'message' => $value['message'],
+            ]);
         }
     }
 }
