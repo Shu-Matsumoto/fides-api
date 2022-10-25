@@ -51,24 +51,24 @@ class LocalDevelopSeeder extends Seeder
 
         // 女優データ
         $actorDatas = [
-            ['user_name' => '河北彩花', 'image_path' => 'https://cdn.pan-pan.co/w_800,q_80/wp-content/uploads/2021/02/image20-min.jpg'],
-            ['user_name' => '本郷愛', 'image_path' => 'https://cdn.pan-pan.co/w_800,q_80/wp-content/uploads/2021/02/image3-min.jpg'],
-            ['user_name' => '石原希望', 'image_path' => 'https://cdn.pan-pan.co/w_800,q_80/wp-content/uploads/2021/02/image15-min.jpg'],
-            ['user_name' => '青空ひかり', 'image_path' => 'https://cdn.pan-pan.co/w_800,q_80/wp-content/uploads/2021/02/image17-min.jpg'],
-            ['user_name' => '楪カレン', 'image_path' => 'https://cdn.pan-pan.co/w_800,q_80/wp-content/uploads/2021/02/%E6%A5%AA%E3%82%AB%E3%83%AC%E3%83%B3-min.jpg'],
-            ['user_name' => '小野六花', 'image_path' => 'https://cdn.pan-pan.co/w_800,q_80/wp-content/uploads/2021/02/image27-min.jpg'],
-            ['user_name' => '愛宝すず', 'image_path' => 'https://cdn.pan-pan.co/w_800,q_80/wp-content/uploads/2021/02/image13-min.png'],
-            ['user_name' => '楓カレン', 'image_path' => 'https://cdn.pan-pan.co/w_800,q_80/wp-content/uploads/2021/02/%E7%AC%AC5%E4%BD%8D%EF%BC%9A%E6%A5%93%E3%82%AB%E3%83%AC%E3%83%B3.jpg'],
-            ['user_name' => '八掛うみ', 'image_path' => 'https://cdn.pan-pan.co/w_800,q_80/wp-content/uploads/2021/02/%E7%AC%AC1%E4%BD%8D%EF%BC%9A%E5%85%AB%E6%8E%9B%E3%81%86%E3%81%BF.jpg'],
-            ['user_name' => '松本いちか', 'image_path' => 'https://cdn.pan-pan.co/w_800,q_80/wp-content/uploads/2021/02/%E7%AC%AC11%E4%BD%8D%EF%BC%9A%E6%9D%BE%E6%9C%AC%E3%81%84%E3%81%A1%E3%81%8B.jpg'],
+            ['user_name' => '佐倉絆', 'image_path' => 'storage/images/userprofile/佐倉絆.jpeg'],
+            ['user_name' => '羽生ありさ', 'image_path' => 'storage/images/userprofile/羽生ありさ.jpeg'],
+            ['user_name' => '紺野ひかる', 'image_path' => 'storage/images/userprofile/紺野ひかる.jpeg'],
+            ['user_name' => '彩奈リナ', 'image_path' => 'storage/images/userprofile/彩奈リナ.png'],
+            ['user_name' => '若月みいな', 'image_path' => 'storage/images/userprofile/若月みいな.jpeg'],
+            ['user_name' => '大槻ひびき', 'image_path' => 'storage/images/userprofile/大槻ひびき.jpeg'],
+            ['user_name' => '天使もえ', 'image_path' => 'storage/images/userprofile/天使もえ.jpeg'],
+            ['user_name' => '南梨央奈', 'image_path' => 'storage/images/userprofile/南梨央奈.jpeg'],
+            ['user_name' => '波多野結衣', 'image_path' => 'storage/images/userprofile/波多野結衣.jpeg'],
+            ['user_name' => '浜崎真緒', 'image_path' => 'storage/images/userprofile/浜崎真緒.jpeg'],
         ];
 
         $portfolioDatas = [
-            ['title' => '作品タイトル1', 'image_path' => 'https://pics.dmm.co.jp/mono/movie/adult/ofje380/ofje380ps.jpg', 'url' => 'https://www.dmm.co.jp/mono/dvd/-/detail/=/cid=ofje380/?dmmref=aMonoDvd_List'],
-            ['title' => '作品タイトル2', 'image_path' => 'https://pics.dmm.co.jp/mono/movie/adult/ssis560/ssis560ps.jpg', 'url' => 'https://www.dmm.co.jp/mono/dvd/-/detail/=/cid=ssis560/?dmmref=aMonoDvd_List'],
-            ['title' => '作品タイトル3 ', 'image_path' => 'https://pics.dmm.co.jp/mono/movie/adult/ssis387/ssis387ps.jpg', 'url' => 'https://www.dmm.co.jp/mono/dvd/-/detail/=/cid=ssis387/?dmmref=aMonoDvd_List'],
-            ['title' => '作品タイトル4', 'image_path' => 'https://pics.dmm.co.jp/mono/movie/adult/ssis413/ssis413ps.jpg', 'url' => 'https://www.dmm.co.jp/mono/dvd/-/detail/=/cid=ssis413/?dmmref=aMonoDvd_List'],
-            ['title' => '作品タイトル5', 'image_path' => 'https://pics.dmm.co.jp/mono/movie/adult/oae214/oae214ps.jpg', 'url' => 'https://www.dmm.co.jp/mono/dvd/-/detail/=/cid=oae214/?dmmref=aMonoDvd_List'],
+            ['title' => '引退', 'image_path' => 'https://pics.dmm.co.jp/digital/video/84mkmp00324/84mkmp00324ps.jpg', 'url' => 'https://www.dmm.co.jp/digital/videoa/-/detail/=/cid=84mkmp00324/?i3_ref=search&i3_ord=36'],
+            ['title' => 'カワイイキャラコスプレ', 'image_path' => 'https://pics.dmm.co.jp/digital/video/84mkmp00279/84mkmp00279ps.jpg', 'url' => 'https://www.dmm.co.jp/digital/videoa/-/detail/=/cid=84mkmp00279/?i3_ref=search&i3_ord=23'],
+            ['title' => 'パーフェクトコスプレSUPER', 'image_path' => 'https://pics.dmm.co.jp/digital/video/84mkmp00205/84mkmp00205ps.jpg', 'url' => 'https://www.dmm.co.jp/digital/videoa/-/detail/=/cid=84mkmp00205/?i3_ref=search&i3_ord=41'],
+            ['title' => '潜入捜査官', 'image_path' => 'https://pics.dmm.co.jp/digital/video/84mild00960/84mild00960ps.jpg', 'url' => 'https://www.dmm.co.jp/digital/videoa/-/detail/=/cid=84mild00960/?i3_ref=search&i3_ord=84'],
+            ['title' => 'デビュー1周年記念', 'image_path' => 'https://pics.dmm.co.jp/digital/video/84mkmp00002/84mkmp00002ps.jpg', 'url' => 'https://www.dmm.co.jp/digital/videoa/-/detail/=/cid=84mkmp00002/?i3_ref=search&i3_ord=115'],
         ];
 
         $actorScheduleDatas = [
@@ -182,8 +182,8 @@ class LocalDevelopSeeder extends Seeder
 
         $chatDatas = [
             ['actor_user_id' => $actor_id, 'maker_user_id' => $maker_id, 'sender_dir' => '2', 'comment' => 'SODの佐藤と申します。', 'send_time' => '2022/10/28 10:00:00'],
-            ['actor_user_id' => $actor_id, 'maker_user_id' => $maker_id, 'sender_dir' => '1', 'comment' => '始めまして鈴木花子と申します。', 'send_time' => '2022/10/28 10:01:00'],
-            ['actor_user_id' => $actor_id, 'maker_user_id' => $maker_id, 'sender_dir' => '2', 'comment' => '鈴木さんのプロフィールを拝見いたしました。', 'send_time' => '2022/10/28 10:01:23'],
+            ['actor_user_id' => $actor_id, 'maker_user_id' => $maker_id, 'sender_dir' => '1', 'comment' => '始めまして佐倉絆と申します。', 'send_time' => '2022/10/28 10:01:00'],
+            ['actor_user_id' => $actor_id, 'maker_user_id' => $maker_id, 'sender_dir' => '2', 'comment' => '佐倉さんのプロフィールを拝見いたしました。', 'send_time' => '2022/10/28 10:01:23'],
             ['actor_user_id' => $actor_id, 'maker_user_id' => $maker_id, 'sender_dir' => '2', 'comment' => '弊社AVの出演の交渉をさせていただきたいのですがよろしいでしょうか。', 'send_time' => '2022/10/28 10:02:00'],
             ['actor_user_id' => $actor_id, 'maker_user_id' => $maker_id, 'sender_dir' => '1', 'comment' => 'はい、もちろんです。', 'send_time' => '2022/10/28 10:03:45']
         ];
@@ -203,8 +203,8 @@ class LocalDevelopSeeder extends Seeder
 
         $chatDatas2 = [
             ['actor_user_id' => $actor_id, 'maker_user_id' => $maker_id, 'sender_dir' => '2', 'comment' => 'PRESTAGEの佐藤と申します。', 'send_time' => '2022/10/28 10:00:00'],
-            ['actor_user_id' => $actor_id, 'maker_user_id' => $maker_id, 'sender_dir' => '1', 'comment' => '始めまして鈴木花子と申します。', 'send_time' => '2022/10/28 10:01:00'],
-            ['actor_user_id' => $actor_id, 'maker_user_id' => $maker_id, 'sender_dir' => '2', 'comment' => '鈴木さんのプロフィールを拝見いたしました。', 'send_time' => '2022/10/28 10:01:23'],
+            ['actor_user_id' => $actor_id, 'maker_user_id' => $maker_id, 'sender_dir' => '1', 'comment' => '始めまして佐倉絆と申します。', 'send_time' => '2022/10/28 10:01:00'],
+            ['actor_user_id' => $actor_id, 'maker_user_id' => $maker_id, 'sender_dir' => '2', 'comment' => '佐倉さんのプロフィールを拝見いたしました。', 'send_time' => '2022/10/28 10:01:23'],
             ['actor_user_id' => $actor_id, 'maker_user_id' => $maker_id, 'sender_dir' => '2', 'comment' => '弊社AVの出演の交渉をさせていただきたいのですがよろしいでしょうか。', 'send_time' => '2022/10/28 10:02:00'],
             ['actor_user_id' => $actor_id, 'maker_user_id' => $maker_id, 'sender_dir' => '1', 'comment' => 'はい、もちろんです。', 'send_time' => '2022/10/28 10:03:45']
         ];
