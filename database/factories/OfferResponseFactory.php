@@ -18,9 +18,9 @@ class OfferResponseFactory extends Factory
     {
         return [
             //
-            'offer_id' => Offer::factory,
-            'response' => 0,
-            'message' => fake()->text(),
+            'offer_id' => \App\Models\Offer::factory(),
+            'response' => 1,
+            'message' => '今回は数いる素敵な女優さんの中から私を採用していただきありがとうございます。どうぞよろしくおねがいします。',
 
 
         ];

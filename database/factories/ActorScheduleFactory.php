@@ -19,10 +19,10 @@ class ActorScheduleFactory extends Factory
     {
         return [
             //
-            'actor_user_id' =>ActorUser::factory(),
-            'maker_user_id' =>MakerUser::factory(),
-            'start_time' => '2022-10-28',
-            'end_time' => '2022-11-28',
+            'actor_user_id' => \App\Models\ActorUser::factory(),
+            'maker_user_id' => 1,
+            'start_time' => '2022/10/28 10:00:00',
+            'end_time' => '2022/11/28 18:00:00',
             'recruiting' => 0,
         ];
     }

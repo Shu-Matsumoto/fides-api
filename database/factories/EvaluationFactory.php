@@ -3,8 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Evaluation;
-use App\Models\User;
-use App\Models\Maker;
+use App\Models\ActorUser;
+use App\Models\MakerUser;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -22,10 +22,10 @@ class EvaluationFactory extends Factory
         return [
             //
             'actor_user_id' => ActorUser::factory(),
-            'maker_user_id' => Maker::factory(),
-            'sender_dir' => 0,
-            'evaluation' => 1,
-            'comment' => fake()->realText(),
+            'maker_user_id' => MakerUser::factory(),
+            'sender_dir' => 1, // 女優⇒メーカー
+            'evaluation' => 1, // 1:good, 2:Normal, 3:Bad
+            'comment' => '現場スタッフさんの撮影技術が神でした！現場での対応も皆さん優しすぎて居心地良すぎました。撮影当日までの進行もスムーズで安心できました。また呼んでいただきたい現場でした。',
 
         ];
     }

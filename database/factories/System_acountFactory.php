@@ -21,8 +21,8 @@ class System_acountFactory extends Factory
             'login_id' => fake()->password(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'type' => 0,
-            'is_admin' => 0,
-            'is_deleted' => 0,
+            'is_admin' => 2,
+            'is_deleted' => 2,
             'remember_token' => Str::random(10),
         ];
     }

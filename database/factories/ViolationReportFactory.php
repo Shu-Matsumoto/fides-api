@@ -18,15 +18,15 @@ class ViolationReportFactory extends Factory
     {
         return [
             //
-            'actor_user_id' => ActorUser::factory,
-            'maker_user_id' => MakerUser::factory,
-            'sender_dir' => 0,
-            'breach_contract' => 0,
-            'withdrawal_negotiation' => 0,
-            'business_interruption' => 0,
-            'nuisance' => 0,
-            'other' => 0,
-            'V' => fake()->realText(),
+            'actor_user_id' => \App\Models\ActorUser::factory(),
+            'maker_user_id' => \App\Models\MakerUser::factory(),
+            'sender_dir' => 1, // 女優⇒メーカー
+            'breach_contract' => 1,
+            'withdrawal_negotiation' => 2,
+            'business_interruption' => 2,
+            'nuisance' => 2,
+            'other' => 2,
+            'explanation_text' => '出演料が振込期日までに振り込まれていません。\n担当者から遅延の連絡もなく、現在連絡がつかない状況です。',
 
         ];
     }
