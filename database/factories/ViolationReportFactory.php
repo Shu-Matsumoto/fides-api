@@ -27,7 +27,6 @@ class ViolationReportFactory extends Factory
             'nuisance' => 2,
             'other' => 2,
             'explanation_text' => '出演料が振込期日までに振り込まれていません。\n担当者から遅延の連絡もなく、現在連絡がつかない状況です。',
-
         ];
     }
 }

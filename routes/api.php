@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\OfferResponseController;
 use App\Http\Controllers\Api\ChatController;
 use App\Http\Controllers\Api\EvaluationController;
 use App\Http\Controllers\Api\ViolationReportController;
+use App\Http\Controllers\Api\UserNoticeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,3 +63,8 @@ Route::resource('/evaluations', EvaluationController::class)->except(['create', 
 
 Route::resource('/violation_reports', ViolationReportController::class)->except(['create', 'edit']);
 Route::get('/actor/{userId}/portfolios', [PortfolioController::class, 'showByUserId']);
+
+// お知らせ
+Route::resource('/user_notices', UserNoticeController::class)->except(['create', 'edit']);
+Route::get('/actor/{userId}/user_notices', [UserNoticeController::class, 'actorUserList']);
+Route::get('/maker/{userId}/user_notices', [UserNoticeController::class, 'makerUserList']);
