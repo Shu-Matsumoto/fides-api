@@ -139,8 +139,8 @@ class LocalDevelopSeeder extends Seeder
 
         // メーカーデータ
         $makerDatas = [
-            ['maker_name' => 'ソフト・オン・デマンド株式会社', 'image_path' => 'storage/images/makerprofile/sod.png'],
-            ['maker_name' => '有限会社プレステージ', 'image_path' => 'storage/images/makerprofile/prestige.png'],
+            ['maker_name' => 'ソフト・オン・デマンド株式会社', 'image_path' => 'storage/images/makerprofile/sod.png', 'url' => 'https://www.sod.co.jp/'],
+            ['maker_name' => '有限会社プレステージ', 'image_path' => 'storage/images/makerprofile/prestige.png', 'url' => 'https://www.prestige-av.com/'],
         ];
 
         foreach ($makerDatas as $index => $value) {
@@ -148,7 +148,8 @@ class LocalDevelopSeeder extends Seeder
                 'email' => 'maker' . $index . '@gmaaaaaail.com',
                 'acount_id' => 2,
                 'maker_name' => $value['maker_name'],
-                'image_path' => $value['image_path']
+                'image_path' => $value['image_path'],
+                'url' => $value['url']
             ]);
         }
 
